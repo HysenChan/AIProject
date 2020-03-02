@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3209228861151169890}
   - component: {fileID: 3209228861151169917}
   - component: {fileID: 3209228861151169916}
-  - component: {fileID: 3209228861151169919}
+  - component: {fileID: 366936246}
   m_Layer: 0
   m_Name: Chaser
   m_TagString: Untagged
@@ -30,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3209228861151169913}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.79, y: 0, z: -20.38}
+  m_LocalPosition: {x: 24.4, y: 0, z: -6.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 9184546477031831859}
@@ -130,7 +130,7 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3209228861151169919
+--- !u!114 &366936246
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -139,12 +139,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3209228861151169913}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f8240b42c7f35646b48983b8a5be6ca, type: 3}
+  m_Script: {fileID: 11500000, guid: 0cd61d677469a714483a6ffb1d58971c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   weight: 1
-  slowDownDistance: 6
-  target: {fileID: 9184546476276875469}
+  target: {fileID: 9184546476765703536}
 --- !u!1 &9184546476276875469
 GameObject:
   m_ObjectHideFlags: 0
