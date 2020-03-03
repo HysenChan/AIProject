@@ -455,8 +455,8 @@ GameObject:
   - component: {fileID: 4893842783184661539}
   - component: {fileID: 4893842783184661564}
   - component: {fileID: 4893842783184661565}
-  - component: {fileID: 4893842783184661566}
   - component: {fileID: 4893842783184661538}
+  - component: {fileID: 4893842783184661561}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -464,6 +464,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &4893842783184661561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4893842783184661560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9a61fd3440b5a443bc4afcaf1397d5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  antiBunny: 0.75
+  gravity: 20
 --- !u!23 &4893842783184661564
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -515,20 +529,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4893842783184661566
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4893842783184661560}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ea085f947ac89849b201d0449452245, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
-  smooth: 5
 --- !u!4 &4893842783184661567
 Transform:
   m_ObjectHideFlags: 0
@@ -573,7 +573,7 @@ GameObject:
   - component: {fileID: 4893842783234073069}
   m_Layer: 0
   m_Name: PatrolPoints
-  m_TagString: Untagged
+  m_TagString: PatrolPoints
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1088,7 +1088,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bullet: {fileID: 3063017652580856503, guid: c208bc536faa798438f29a9b336009cc, type: 3}
-  bulletSpawnPoint: {fileID: 4893842784412761606}
+  bulletSpawnPoint: {fileID: 4893842784448193119}
 --- !u!143 &4893842784412761609
 CharacterController:
   m_ObjectHideFlags: 0

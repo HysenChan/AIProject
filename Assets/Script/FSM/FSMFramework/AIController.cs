@@ -31,9 +31,9 @@ namespace FSMFramework
             if (!playerTransform)
             {
                 Debug.LogError("Player doesn't exist Tag,Please add one with Tag named 'Player'");
-                //调用ConstructFSM函数，开始构造状态机
-                ConstructFSM();
             }
+            //调用ConstructFSM函数，开始构造状态机
+            ConstructFSM();
         }
 
         //在FSM基类的Update函数中调用
@@ -66,7 +66,7 @@ namespace FSMFramework
         private void ConstructFSM()
         {
             //找到所有便签为“巡逻点”的游戏物体
-            pointList = GameObject.FindGameObjectsWithTag("PatrolPoint");
+            pointList = GameObject.FindGameObjectsWithTag("PatrolPoints");
 
             Transform[] waypoints = new Transform[pointList.Length];
             int i = 0;
