@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace FSMFramework
 {
-    public abstract class FSMState : MonoBehaviour
+    public abstract class FSMState
     {
         //字典，字典中的每一项都记录了一个“转换-状态”对信息
         protected Dictionary<Transition, FSMStateID> map = new Dictionary<Transition, FSMStateID>();
