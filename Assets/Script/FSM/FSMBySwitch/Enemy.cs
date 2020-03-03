@@ -11,10 +11,8 @@ public class Enemy : MonoBehaviour
         fsmSystem = new FSMSystem();
         FSMState patrolState = new PatrolState(fsmSystem);
         FSMState chaseState = new ChaseState(fsmSystem);
-
         fsmSystem.AddState(patrolState);
         fsmSystem.AddState(chaseState);
-
         patrolState.AddTransition(Transition.FindPlayer, StateID.ChaseState);
         chaseState.AddTransition(Transition.LosePlayer, StateID.PatrolState);
     }

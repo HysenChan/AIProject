@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChaseState :FSMState
+public class ChaseState : FSMState
 {
     private Transform enemy;
     private Transform player;
     public float smooth = 3;
     public float chaseSpeed = 5;
 
-    public ChaseState(FSMSystem fsmSystem):base(fsmSystem)
+    public ChaseState(FSMSystem fsm) : base(fsm)
     {
         stateID = StateID.ChaseState;
         enemy = GameObject.FindWithTag("Enemy").transform;
@@ -23,7 +23,7 @@ public class ChaseState :FSMState
 
     public override void DoAfterLeaving()
     {
-        Debug.Log("敌人跟丢了玩家，继续巡逻！");
+        Debug.Log("敌人跟丢玩家，继续巡逻了！");
     }
 
     public override void Act()
@@ -37,9 +37,9 @@ public class ChaseState :FSMState
 
     public override void Reason()
     {
-        if (Vector3.Distance(enemy.position,player.position)>8)
+        if (Vector3.Distance(enemy.position, player.position) > 8)
         {
-            fsmSystem.PerformTransition(Transition.LosePlayer);
+            fsmSytem.PerformTransition(Transition.LosePlayer);
         }
     }
 }

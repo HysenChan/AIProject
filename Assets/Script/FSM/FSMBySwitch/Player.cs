@@ -18,12 +18,12 @@ public class Player : MonoBehaviour
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
         transform.Rotate(Vector3.up, h * smooth);
-        character.SimpleMove(transform.forward * v*speed);
+        character.SimpleMove(transform.forward * v * speed);
         if (Input.GetKeyDown(KeyCode.Space))
         {
             speed = 10;
         }
-        if (Input.GetKeyUp(KeyCode.Space))
+        if (Input.GetKeyUp(KeyCode.Space)) 
         {
             speed = 5;
         }

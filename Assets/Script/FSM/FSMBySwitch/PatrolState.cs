@@ -8,13 +8,10 @@ public class PatrolState : FSMState
     private Transform player;
     private List<Transform> pathsList = new List<Transform>();
     private int index = 0;
+
     public float smooth = 3;
 
-    /// <summary>
-    /// 巡逻状态
-    /// </summary>
-    /// <param name="fsmSystem"></param>
-    public PatrolState(FSMSystem fsmSystem):base(fsmSystem)
+    public PatrolState(FSMSystem fsm) : base(fsm)
     {
         stateID = StateID.PatrolState;
         enemy = GameObject.FindWithTag("Enemy").transform;
@@ -43,7 +40,7 @@ public class PatrolState : FSMState
         Quaternion targetQuaternion = Quaternion.LookRotation(forward, Vector3.up);
         enemy.rotation = Quaternion.Slerp(enemy.rotation, targetQuaternion, Time.deltaTime * smooth);
         enemy.Translate(Vector3.forward * Time.deltaTime * smooth);
-        if (Vector3.Distance(enemy.position,pathsList[index].position)<2f)
+        if (Vector3.Distance(enemy.position, pathsList[index].position) < 2f)
         {
             index++;
             index %= pathsList.Count;
@@ -52,9 +49,9 @@ public class PatrolState : FSMState
 
     public override void Reason()
     {
-        if (Vector3.Distance(enemy.position,player.position)<4)
+        if (Vector3.Distance(enemy.position, player.position) < 4)
         {
-            fsmSystem.PerformTransition(Transition.FindPlayer);
+            fsmSytem.PerformTransition(Transition.FindPlayer);
         }
     }
 }

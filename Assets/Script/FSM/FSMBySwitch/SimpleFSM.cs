@@ -11,7 +11,7 @@ public enum States
 }
 
 /// <summary>
-/// switch语句实现简单有限状态机
+///switch语句实现简单有限状态机 
 /// </summary>
 public class SimpleFSM : MonoBehaviour
 {
@@ -21,16 +21,16 @@ public class SimpleFSM : MonoBehaviour
         switch (currentState)
         {
             case States.Idle:
-                //TODO:空闲状态动作
+                //TODO 空闲状态动作
                 break;
             case States.Patrol:
-                //TODO:巡逻状态动作
+                //TODO 巡逻状态动作
                 break;
             case States.Chase:
-                //TODO:追逐状态动作
+                //TODO 追逐状态动作
                 break;
             case States.Attack:
-                //TODO:攻击状态动作
+                //TODO 攻击状态动作
                 break;
         }
     }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FSMSystem
 {
-    private Dictionary<StateID, FSMState> fsmState = new Dictionary<StateID, FSMState>();
+    private Dictionary<StateID, FSMState> dicStates = new Dictionary<StateID, FSMState>();
     private FSMState currentState;
 
     /// <summary>
@@ -19,25 +19,24 @@ public class FSMSystem
     /// <summary>
     /// 添加状态
     /// </summary>
-    /// <param name="state">需要管理的状态</param>
+    /// <param name="state">需管理的状态</param>
     public void AddState(FSMState state)
     {
-        if (state==null)
+        if (state == null)
         {
-            Debug.LogError(state + "为空");
-            return;
+            Debug.LogError(state + "为空"); return;
         }
-        if (currentState==null)
+        if (currentState == null)
         {
             currentState = state;
         }
-        if (fsmState.ContainsValue(state))
+        if (dicStates.ContainsValue(state))
         {
             Debug.LogError(state + "已经存在");
         }
         else
         {
-            fsmState.Add(state.ID, state);
+            dicStates.Add(state.ID, state);
         }
     }
 
@@ -45,22 +44,22 @@ public class FSMSystem
     /// 删除状态
     /// </summary>
     /// <param name="id">需要删除状态的ID</param>
-    /// <returns>删除成功返回true，否则返回false</returns>
+    /// /// <returns>删除成功返回true,否则返回false</returns>
     public bool DeleteState(StateID id)
     {
-        if (id==StateID.NullStateID)
+        if (id == StateID.NullStateID)
         {
             Debug.LogError(id + "为空");
             return false;
         }
-        if (fsmState.ContainsKey(id)==false)
+        if (dicStates.ContainsKey(id) == false)
         {
             Debug.LogError(id + "不存在");
             return false;
         }
         else
         {
-            fsmState.Remove(id);
+            dicStates.Remove(id);
             return true;
         }
     }
@@ -68,21 +67,19 @@ public class FSMSystem
     /// <summary>
     /// 执行转换
     /// </summary>
-    /// <param name="transition">转换条件</param>
-    public void PerformTransition(Transition transition)
+    /// <param name="trans">转换条件</param>
+    public void PerformTransition(Transition trans)
     {
-        if (transition==Transition.NullTransition)
+        if (trans == Transition.NullTransition)
         {
-            Debug.LogError(transition + "为空");
-            return;
+            Debug.LogError(trans + "为空"); return;
         }
-        StateID targetID = currentState.GetTargetStateID(transition);
-        if (fsmState.ContainsKey(targetID)==false)
+        StateID targetID = currentState.GetTargetStateID(trans);
+        if (dicStates.ContainsKey(targetID) == false)
         {
-            Debug.LogError(targetID + "不存在");
-            return;
+            Debug.LogError(targetID + "不存在"); return;
         }
-        FSMState targetState = fsmState[targetID];
+        FSMState targetState = dicStates[targetID];
         currentState.DoAfterLeaving();
         targetState.DoBeforeEntering();
         currentState = targetState;
