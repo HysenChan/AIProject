@@ -13,23 +13,16 @@ namespace FSMFramework
         //子弹出枪膛的速度
         public float beamVelocity = 100;
 
-        private new Rigidbody rigidbody;
-
-        private void Awake()
-        {
-            rigidbody = gameObject.GetComponent<Rigidbody>();
-        }
-
         public void Go()
         {
             //子弹是一个刚体，发射时，我们为它加上一个速度突变
-            rigidbody.AddForce(transform.forward * 10, ForceMode.VelocityChange);
+            GetComponent<Rigidbody>().AddForce(transform.forward * 10, ForceMode.VelocityChange);
         }
 
         private void FixedUpdate()
         {
             //子弹飞行过程中，速度如何变化
-            rigidbody.AddForce(transform.forward * beamVelocity, ForceMode.Acceleration);
+            GetComponent<Rigidbody>().AddForce(transform.forward * beamVelocity, ForceMode.Acceleration);
         }
 
         private void Start()

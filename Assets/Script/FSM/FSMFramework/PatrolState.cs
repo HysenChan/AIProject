@@ -9,7 +9,7 @@ namespace FSMFramework
         public PatrolState(Transform[] wp)
         {
             //这个构造器首先接受传来的巡逻点transform数组，将它们存储在局部变量中
-            wayPoints = wp;
+            waypoints = wp;
             //设置状态编号
             stateID = FSMStateID.Patrolling;
             //设置转向速度与移动速度
@@ -21,7 +21,7 @@ namespace FSMFramework
         public override void Reason(Transform player, Transform npc)
         {
             //检查AI角色与玩家的距离，如果小于追逐距离
-            if (Vector3.Distance(npc.position,player.position)<=chaseDistance)
+            if (Vector3.Distance(npc.position, player.position) <= chaseDistance)
             {
                 Debug.Log("Switch to Chase State");
                 //设置转换为“看到玩家”
@@ -33,7 +33,7 @@ namespace FSMFramework
         public override void Act(Transform player, Transform npc)
         {
             //如果已经到达当前巡逻点，那么调用FindNextPoint函数，选择下一个巡逻点
-            if (Vector3.Distance(npc.position,destPos)<=arriveDistance)
+            if (Vector3.Distance(npc.position, destPos) <= arriveDistance)
             {
                 Debug.Log("Reached to the destination point\ncalculating the next point");
                 FindNextPoint();

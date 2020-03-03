@@ -9,7 +9,7 @@ namespace FSMFramework
         public ChaseState(Transform[] wp)
         {
             //这个构造器首先接受传来的巡逻点transform数组，将他们存储在局部变量中
-            wayPoints = wp;
+            waypoints = wp;
             //设置状态编号
             stateID = FSMStateID.Chasing;
 
@@ -28,13 +28,13 @@ namespace FSMFramework
             //检查与玩家的距离
             //如果小于攻击距离，那么转换到攻击状态
             float dist = Vector3.Distance(npc.position, destPos);
-            if (dist<=attackDistance)
+            if (dist <= attackDistance)
             {
                 Debug.Log("Switch to Attack state");
                 npc.GetComponent<AIController>().SetTransition(Transition.ReachPlayer);
             }
             //如果与玩家距离超出追逐距离，那么回到巡逻状态
-            else if (dist>=chaseDistance)
+            else if (dist >= chaseDistance)
             {
                 Debug.Log("Switch to Patrol state");
                 npc.GetComponent<AIController>().SetTransition(Transition.LostPlayer);
@@ -52,7 +52,7 @@ namespace FSMFramework
 
             //向前移动
             CharacterController controller = npc.GetComponent<CharacterController>();
-            controller.SimpleMove(npc.transform.position * Time.deltaTime * curSpeed);
+            controller.SimpleMove(npc.transform.forward * Time.deltaTime * curSpeed);
 
             //TODO:播放奔跑动画
             //Animation animComponent = npc.GetComponent<Animation>();

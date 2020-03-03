@@ -13,7 +13,7 @@ namespace FSMFramework
         protected FSMStateID stateID;
         public FSMStateID ID
         {
-            get { return this.stateID; }
+            get { return stateID; }
         }
 
         //下面是需要用到的，与各状态相关的变量
@@ -21,7 +21,7 @@ namespace FSMFramework
         protected Vector3 destPos;
 
         //巡逻点的数组，其中存储了巡逻时需要经过的点
-        protected Transform[] wayPoints;
+        protected Transform[] waypoints;
 
         //转向的速度
         protected float curRotSpeed;
@@ -37,7 +37,7 @@ namespace FSMFramework
         protected float arriveDistance = 3.0f;
 
         //向字典中添加项；每项是一个“转换-状态”对
-        public void AddTransiton(Transition transition,FSMStateID id)
+        public void AddTransition(Transition transition, FSMStateID id)
         {
             //检查这个转换（可以看做是字典的关键字）是否已经在字典中
             if (map.ContainsKey(transition))
@@ -50,16 +50,16 @@ namespace FSMFramework
             //如果不在字典中，那么将这个转换和转换后的状态作为一个新的字典项
             //加入字典
             map.Add(transition, id);
-            Debug.Log("Added:" + transition + " with id:" + id);
+            Debug.Log("Added : " + transition + " with ID : " + id);
         }
 
         //从字典中删除一项
-        public void DeleteTransition(Transition transition,FSMStateID id)
+        public void DeleteTransition(Transition trans)
         {
             //检查这项是否在字典中，如果在，则移除
-            if (map.ContainsKey(transition))
+            if (map.ContainsKey(trans))
             {
-                map.Remove(transition);
+                map.Remove(trans);
                 return;
             }
             //如果要删除的项不在字典中，则报告错误
@@ -82,9 +82,10 @@ namespace FSMFramework
         //随机的从巡逻点数组中选择一个点，将这个点设置为目标点
         public void FindNextPoint()
         {
-            int rndIndex = Random.Range(0, wayPoints.Length);
+            //Debug.Log("Finding next point");
+            int rndIndex = Random.Range(0, waypoints.Length);
             Vector3 rndPosition = Vector3.zero;
-            destPos = wayPoints[rndIndex].position + rndPosition;
+            destPos = waypoints[rndIndex].position + rndPosition;
         }
     }
 }

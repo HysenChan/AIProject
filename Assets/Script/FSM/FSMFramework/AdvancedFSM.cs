@@ -26,20 +26,20 @@ namespace FSMFramework
         Dead,               //死亡的状态编号为3
     }
 
-    public class AdvanceFSM :FSM
+    public class AdvancedFSM : FSM
     {
         //FSM中的所有状态（多个FSMState）组成的列表
         private List<FSMState> fsmStates;
 
         //当前状态的编号
         private FSMStateID currentStateID;
-        public FSMStateID CurrentStateID { get { return this.currentStateID; } }
+        public FSMStateID CurrentStateID { get { return currentStateID; } }
 
         //当前状态
         private FSMState currentState;
-        public FSMState CurrentState { get { return this.currentState; } }
+        public FSMState CurrentState { get { return currentState; } }
 
-        public AdvanceFSM()
+        public AdvancedFSM()
         {
             //新建一个空的状态列表
             fsmStates = new List<FSMState>();
@@ -49,13 +49,13 @@ namespace FSMFramework
         public void AddFSMState(FSMState fsmState)
         {
             //检查要加入的新状态是否为空，如果是空，报告错误
-            if (fsmState==null)
+            if (fsmState == null)
             {
-                Debug.LogError("FSM ERROR:Null reference is not allowed");
+                Debug.LogError("FSM ERROR: Null reference is not allowed");
             }
 
             //如果插入这个状态时，列表还是空的，那么将它加入列表并返回
-            if (fsmStates.Count==0)
+            if (fsmStates.Count == 0)
             {
                 fsmStates.Add(fsmState);
                 currentState = fsmState;
@@ -68,7 +68,7 @@ namespace FSMFramework
             {
                 if (state.ID == fsmState.ID)
                 {
-                    Debug.LogError("FSM ERROR:Trying to add a state that was already inside the list");
+                    Debug.LogError("FSM ERROR: Trying to add a state that was already inside the list");
                     return;
                 }
             }
@@ -77,12 +77,12 @@ namespace FSMFramework
         }
 
         //从状态列表中删除一个状态
-        public void DeleteState(FSMStateID fsmStateID)
+        public void DeleteState(FSMStateID fsmState)
         {
             //搜索整个状态列表，如果要删除的状态在列表中，那么将它移除，否则报错
             foreach (FSMState state in fsmStates)
             {
-                if (state.ID== fsmStateID)
+                if (state.ID == fsmState)
                 {
                     fsmStates.Remove(state);
                     return;
@@ -104,7 +104,7 @@ namespace FSMFramework
             //将当前状态设置为查找到的状态
             foreach (FSMState state in fsmStates)
             {
-                if (state.ID==currentStateID)
+                if (state.ID == currentStateID)
                 {
                     currentState = state;
                     break;
