@@ -30,11 +30,11 @@ namespace FSMFramework
         protected float curSpeed;
 
         //AI角色与玩家的距离小于这个值时，开始追逐
-        protected float chaseDistance = 40.0f;
+        protected float chaseDistance = 20.0f;
         //AI角色与玩家的距离小于这个值时，开始攻击
-        protected float attackDistance = 20.0f;
+        protected float attackDistance = 5.0f;
         //在巡逻过程中，如果AI角色与某个巡逻点的距离小于这个值，认为已经到达了这个点
-        protected float arriveDistance = 3.0f;
+        protected float arriveDistance = 1.0f;
 
         //向字典中添加项；每项是一个“转换-状态”对
         public void AddTransition(Transition transition, FSMStateID id)
