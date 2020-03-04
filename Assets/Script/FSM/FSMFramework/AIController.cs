@@ -7,9 +7,9 @@ namespace FSMFramework
     public class AIController : AdvancedFSM
     {
         //子弹的游戏对象
-        public GameObject Bullet;
+        //public GameObject Bullet;
         //子弹的生成点
-        public Transform bulletSpawnPoint;
+        //public Transform bulletSpawnPoint;
         //AI角色的生命值
         private int health;
 
@@ -137,9 +137,9 @@ namespace FSMFramework
             if (elapsedTime >= shootRate)
             {
                 //在子弹生成位置，实例化一个子弹
-                GameObject bulletObj = Instantiate(Bullet, bulletSpawnPoint.position, transform.rotation) as GameObject;
+                //GameObject bulletObj = Instantiate(Bullet, bulletSpawnPoint.position, transform.rotation) as GameObject;
                 //调用bullet脚本的Go函数，子弹向前飞出
-                bulletObj.GetComponent<Bullet>().Go();
+                //bulletObj.GetComponent<Bullet>().Go();
                 //重置流逝事件为0
                 elapsedTime = 0.0f;
             }
