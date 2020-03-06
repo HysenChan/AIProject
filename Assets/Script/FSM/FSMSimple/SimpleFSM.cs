@@ -22,6 +22,7 @@ namespace FSMSimple
 
         //Get character controller
         private CharacterController controller;
+        private Rigidbody rigidbody;
 
         //private Animation animComponent;
 
@@ -30,7 +31,7 @@ namespace FSMSimple
 
         //speed of the AI
         //public float curSpeed = 120.0f;
-        public float walkSpeed = 80.0f;
+        public float walkSpeed = 1.0f;
         public float runSpeed = 160.0f;
 
         //Rotation Speed
@@ -58,6 +59,7 @@ namespace FSMSimple
 
             //Get charactercontroller
             controller = GetComponent<CharacterController>();
+            rigidbody = GetComponent<Rigidbody>();
             //Get animation
             //animComponent = GetComponent<Animation>();
 
@@ -123,7 +125,9 @@ namespace FSMSimple
 
             //Go Forward
             controller.SimpleMove(transform.forward * Time.deltaTime * walkSpeed);
-
+            //rigidbody.MovePosition(transform.position + transform.forward * Time.deltaTime);
+            //rigidbody.MoveRotation(targetRotation);
+            //rigidbody.MoveRotation(targetRotation);
             //animComponent.CrossFade("Walk");
 
         }
@@ -153,6 +157,9 @@ namespace FSMSimple
 
             //Go Forward
             controller.SimpleMove(transform.forward * Time.deltaTime * runSpeed);
+            //rigidbody.MovePosition(transform.forward * Time.deltaTime * walkSpeed);
+            //rigidbody.MovePosition(transform.position + transform.forward * Time.deltaTime);
+            //rigidbody.MoveRotation(targetRotation);
 
             //animComponent.CrossFade("Run");
 
