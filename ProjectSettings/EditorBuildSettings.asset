@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Manipulation.unity
     guid: acadddb1fa173f24ea721e376894cb4b
   - enabled: 1
-    path: Assets/Scenes/FSMMain.unity
+    path: Assets/Scenes/AI/FSMMain.unity
     guid: 8f541785e3ef5b044b276a0f8841efdb
   m_configObjects: {}

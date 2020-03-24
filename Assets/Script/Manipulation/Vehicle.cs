@@ -11,7 +11,7 @@ public class Vehicle : MonoBehaviour
     public float maxSpeed = 10;
 
     //设置能施加到这个AI角色的力的最大值
-    private float maxForce=100;
+    public float maxForce=100;
 
     //最大速度的平方，通过预先算出并存储，节省资源
     protected float sqrMaxSpeed;
